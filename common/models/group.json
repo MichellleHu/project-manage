@@ -1,0 +1,44 @@
+{
+  "name": "Group",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "leader_id": {
+      "type": "number",
+      "required": true
+    },
+    "leader_um": {
+      "type": "string",
+      "required": true
+    },
+    "create_time": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "user_ids": {
+      "type": "array",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "projects": {
+      "type": "hasMany",
+      "model": "Project",
+      "foreignKey": "group_id"
+    },
+    "person_has_groups": {
+      "type": "hasMany",
+      "model": "Person_has_group",
+      "foreignKey": "group_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

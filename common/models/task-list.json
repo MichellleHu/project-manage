@@ -1,0 +1,40 @@
+{
+  "name": "Task_list",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "required": true
+    },
+    "project_name": {
+      "type": "string",
+      "required": true
+    },
+    "task_group_id": {
+      "type": "number",
+      "required": true
+    },
+    "task_group_name": {
+      "type": "string",
+      "required": true
+    },
+    "task_list": {
+      "type": "array",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tasks": {
+      "type": "hasMany",
+      "model": "Task",
+      "foreignKey": "task_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
